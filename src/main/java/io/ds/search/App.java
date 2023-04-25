@@ -66,8 +66,15 @@ public class App {
 
         System.out.println("Initialized with parameters N = " + N + ", n = " + n + " and p = " + p + ".");
 
-        System.out.println("Threads 1 to " + (p - 1) + " will search " + (N / p) + " indexes.");
-        System.out.println("Thread " + p + " will search " + ((N / p) + (N % p)) + " indexes");
+        if (p == 1) {
+            System.out.println("Thread " + p + " will search " + ((N / p) + (N % p)) + " indexes");
+        } else if (p == 2) {
+            System.out.println("Thread 1 will search " + (N / p) + " indexes.");
+            System.out.println("Thread " + p + " will search " + ((N / p) + (N % p)) + " indexes");
+        } else {
+            System.out.println("Threads 1 to " + (p - 1) + " will search " + (N / p) + " indexes.");
+            System.out.println("Thread " + p + " will search " + ((N / p) + (N % p)) + " indexes");
+        }
 
         if (N < 200) System.out.println("Looking for number " + n + " in the numbers array: " + numbers + ".");
         else System.out.println("Looking for the number " + n + " in the numbers array. Array not logged due to length.");
