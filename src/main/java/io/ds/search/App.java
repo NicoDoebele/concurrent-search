@@ -36,7 +36,7 @@ public class App {
                 end += N % p;
             }
 
-            //System.out.println("Thread " + (i + 1) + " will check indexes " + start + " to " + end + ".");
+            System.out.println("Thread " + (i + 1) + " will search indexes " + start + " to " + end + ".");
 
             range[0] = start;
             range[1] = end;
@@ -64,8 +64,14 @@ public class App {
 
         long duration = end - start;
 
-        //System.out.println("Numbers array is of length " + N + ".");
-        //System.out.println("Looking for the number " + n + " in the numbers array: " + numbers + ".");
+        System.out.println("Initialized with parameters N = " + N + ", n = " + n + " and p = " + p + ".");
+
+        System.out.println("Threads 1 to " + (p - 1) + " will search " + (N / p) + " indexes.");
+        System.out.println("Thread " + p + " will search " + ((N / p) + (N % p)) + " indexes");
+
+        if (N < 200) System.out.println("Looking for number " + n + " in the numbers array: " + numbers + ".");
+        else System.out.println("Looking for the number " + n + " in the numbers array. Array not logged due to length.");
+
         System.out.println("Found " + n + " at the following indexes: " + results + ".");
         System.out.println("The process took " + duration + " milliseconds with " + p + " threads.");
     }
